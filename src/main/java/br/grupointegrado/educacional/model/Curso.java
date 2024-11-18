@@ -1,7 +1,10 @@
 package br.grupointegrado.educacional.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "cursos")
@@ -20,6 +23,10 @@ public class Curso {
 
     @Column
     private Integer carga_horaria;
+
+    @OneToMany(mappedBy = "curso")
+    @JsonIgnoreProperties("curso")
+    private List<Turma> turmas;
 
     public Integer getId() {
         return id;
