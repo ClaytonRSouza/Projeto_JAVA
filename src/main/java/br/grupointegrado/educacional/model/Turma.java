@@ -1,6 +1,5 @@
 package br.grupointegrado.educacional.model;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +10,7 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "curso_id", referencedColumnName = "id")
     private Curso curso;
 
