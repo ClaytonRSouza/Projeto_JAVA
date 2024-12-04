@@ -24,6 +24,11 @@ public class Matricula {
     @JsonIgnoreProperties("matriculas")
     private Turma turma;
 
+
+    @OneToMany(mappedBy = "matricula",cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("matricula")
+    private List<Nota> notas;
+
     public Integer getId() {
         return id;
     }
@@ -46,5 +51,13 @@ public class Matricula {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public List<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
     }
 }

@@ -3,6 +3,7 @@ package br.grupointegrado.educacional.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -14,7 +15,7 @@ public class Nota {
     private Integer id;
 
     @Column
-    private  Integer nota;
+    private BigDecimal nota;
 
     @Column
     private LocalDate data_lancamento;
@@ -36,11 +37,11 @@ public class Nota {
         this.id = id;
     }
 
-    public Integer getNota() {
+    public BigDecimal getNota() {
         return nota;
     }
 
-    public void setNota(Integer nota) {
+    public void setNota(BigDecimal nota) {
         this.nota = nota;
     }
 
